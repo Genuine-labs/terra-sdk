@@ -57,7 +57,14 @@ func (s Subspace) WithKeyTable(table KeyTable) Subspace {
 	}
 
 	for k, v := range table.m {
+		// defer func() {
+		// 	if r := recover(); r != nil {
+		// 		fmt.Println("Recovered:", r)
+		// 	}
+		// }()
+		fmt.Println(k)
 		s.table.m[k] = v
+
 	}
 
 	// Allocate additional capacity for Subspace.name
