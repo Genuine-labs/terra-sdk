@@ -55,7 +55,7 @@ func (s Subspace) WithKeyTable(table KeyTable) Subspace {
 	if len(s.table.m) != 0 {
 		panic("SetKeyTable() called on already initialized Subspace")
 	}
-
+	fmt.Println(s.key.Name())
 	for k, v := range table.m {
 		// defer func() {
 		// 	if r := recover(); r != nil {
