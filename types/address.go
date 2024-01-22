@@ -195,7 +195,7 @@ func AccAddressFromBech32(address string) (addr AccAddress, err error) {
 	}
 
 	bech32PrefixAccAddr := GetConfig().GetBech32AccountAddrPrefix()
-	fmt.Println(bech32PrefixAccAddr)
+	fmt.Println("sssssssss:", bech32PrefixAccAddr)
 
 	bz, err := GetFromBech32(address, bech32PrefixAccAddr)
 	if err != nil {
