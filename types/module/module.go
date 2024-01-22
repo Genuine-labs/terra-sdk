@@ -317,6 +317,7 @@ func (m *Manager) InitGenesis(ctx sdk.Context, cdc codec.JSONCodec, genesisData 
 		if genesisData[moduleName] == nil {
 			continue
 		}
+		fmt.Println(moduleName)
 		ctx.Logger().Debug("running initialization for module", "module", moduleName)
 
 		moduleValUpdates := m.Modules[moduleName].InitGenesis(ctx, cdc, genesisData[moduleName])
