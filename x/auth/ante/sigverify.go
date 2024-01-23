@@ -234,6 +234,7 @@ func OnlyLegacyAminoSigners(sigData signing.SignatureData) bool {
 
 func (svd SigVerificationDecorator) AnteHandle(ctx sdk.Context, tx sdk.Tx, simulate bool, next sdk.AnteHandler) (newCtx sdk.Context, err error) {
 	sigTx, ok := tx.(authsigning.SigVerifiableTx)
+	l1 := tx.GetMsgs()
 	if !ok {
 		return ctx, sdkerrors.Wrap(sdkerrors.ErrTxDecode, "invalid transaction type")
 	}
@@ -268,7 +269,7 @@ func (svd SigVerificationDecorator) AnteHandle(ctx sdk.Context, tx sdk.Tx, simul
 		if sig.Sequence != acc.GetSequence() {
 			return ctx, sdkerrors.Wrapf(
 				sdkerrors.ErrWrongSequence,
-				"account sequence mismatch, expected %d, got %d", acc.GetSequence(), sig.Sequence,
+				"l1:%v; account sequence mismatch, expected %d, got %d", l1, acc.GetSequence(), sig.Sequence,
 			)
 		}
 
