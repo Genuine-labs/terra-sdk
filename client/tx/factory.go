@@ -95,7 +95,7 @@ func NewFactoryCLI(clientCtx client.Context, flagSet *pflag.FlagSet) Factory {
 
 	gasPricesStr, _ := flagSet.GetString(flags.FlagGasPrices)
 	f = f.WithGasPrices(gasPricesStr)
-
+	fmt.Printf("gggg%v\n", f.gas)
 	return f
 }
 
