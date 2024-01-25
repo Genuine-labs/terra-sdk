@@ -67,7 +67,7 @@ func BroadcastTx(clientCtx client.Context, txf Factory, msgs ...sdk.Msg) error {
 	if err != nil {
 		return err
 	}
-
+	fmt.Printf("ggggggggggg:%v\n", txf.gas)
 	if txf.SimulateAndExecute() || clientCtx.Simulate {
 		_, adjusted, err := CalculateGas(clientCtx, txf, msgs...)
 		if err != nil {
