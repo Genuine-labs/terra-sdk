@@ -38,7 +38,7 @@ func SignTx(txFactory tx.Factory, clientCtx client.Context, name string, txBuild
 	if err != nil {
 		return err
 	}
-
+	fmt.Printf("gggggg%v\n", txFactory.Gas())
 	// Ledger and Multisigs only support LEGACY_AMINO_JSON signing.
 	if txFactory.SignMode() == signing.SignMode_SIGN_MODE_UNSPECIFIED &&
 		(k.GetType() == keyring.TypeLedger || k.GetType() == keyring.TypeMulti) {
