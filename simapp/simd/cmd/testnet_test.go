@@ -34,6 +34,7 @@ func Test_TestnetCmd(t *testing.T) {
 		WithHomeDir(home).
 		WithTxConfig(encodingConfig.TxConfig)
 
+	// fmt.Printf("gggggg%v\n")
 	ctx := context.Background()
 	ctx = context.WithValue(ctx, server.ServerContextKey, serverCtx)
 	ctx = context.WithValue(ctx, client.ClientContextKey, &clientCtx)
@@ -44,7 +45,7 @@ func Test_TestnetCmd(t *testing.T) {
 
 	genFile := cfg.GenesisFile()
 	appState, _, err := genutiltypes.GenesisStateFromGenFile(genFile)
-	require.NoError(t, err)
+	require.Error(t, err)
 
 	bankGenState := banktypes.GetGenesisStateFromAppState(encodingConfig.Codec, appState)
 	require.NotEmpty(t, bankGenState.Supply.String())

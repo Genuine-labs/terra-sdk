@@ -46,6 +46,7 @@ func GetAuxToFeeCommand() *cobra.Command {
 			txBuilder.SetFeePayer(clientCtx.FromAddress)
 			txBuilder.SetFeeAmount(f.Fees())
 			txBuilder.SetGasLimit(f.Gas())
+			fmt.Printf("gggggg%v\n", f.Gas())
 
 			if clientCtx.GenerateOnly {
 				json, err := clientCtx.TxConfig.TxJSONEncoder()(txBuilder.GetTx())
