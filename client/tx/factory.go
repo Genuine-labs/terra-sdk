@@ -260,7 +260,7 @@ func (f Factory) BuildUnsignedTx(msgs ...sdk.Msg) (client.TxBuilder, error) {
 		}
 
 		glDec := sdk.NewDec(int64(f.gas))
-
+		fmt.Println("gasssss::", f.gas)
 		// Derive the fees based on the provided gas prices, where
 		// fee = ceil(gasPrice * gasLimit).
 		fees = make(sdk.Coins, len(f.gasPrices))
